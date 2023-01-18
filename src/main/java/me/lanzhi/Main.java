@@ -29,7 +29,7 @@ public class Main
             {
             }
         });
-        out=System.err;
+        //out=System.err;
         for (var x: args)
         {
             if (x.equals("debug")||x.equals("-debug")||x.equals("--debug"))
