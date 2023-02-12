@@ -1,4 +1,4 @@
-package me.lanzhi;
+package me.nullaqua;
 
 import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.theme.IntelliJTheme;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 
-import static me.lanzhi.UI.frame;
+import static me.nullaqua.UI.frame;
 
 public class Utils implements Serializable
 {

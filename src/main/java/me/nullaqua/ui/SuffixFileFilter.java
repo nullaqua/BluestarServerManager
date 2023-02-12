@@ -1,4 +1,4 @@
-package me.lanzhi.ui;
+package me.nullaqua.ui;
 
 import javax.swing.filechooser.FileFilter;
 import java.io.File;

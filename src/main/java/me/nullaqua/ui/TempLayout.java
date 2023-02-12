@@ -1,4 +1,4 @@
-package me.lanzhi.ui;
+package me.nullaqua.ui;
 
 import me.lanzhi.api.awt.BluestarLayout;
 import me.lanzhi.api.awt.BluestarLayoutData;
@@ -23,29 +23,26 @@ public class TempLayout extends BluestarLayout
         {
             switch ((Align) constraints)
             {
-                case LEFT:
+                case LEFT ->
                 {
                     BluestarLayoutData data=new BluestarLayoutData();
                     data.setPortraitAlignment(BluestarLayoutData.FILL);
                     data.setTransverseAlignment(BluestarLayoutData.FRONT);
                     super.addLayoutComponent(comp,data);
-                    break;
                 }
-                case RIGHT:
+                case RIGHT ->
                 {
                     BluestarLayoutData data=new BluestarLayoutData();
                     data.setPortraitAlignment(BluestarLayoutData.FILL);
                     data.setTransverseAlignment(BluestarLayoutData.BACK);
                     super.addLayoutComponent(comp,data);
-                    break;
                 }
-                case CENTER:
+                case CENTER ->
                 {
                     BluestarLayoutData data=new BluestarLayoutData();
                     data.setPortraitAlignment(BluestarLayoutData.FILL);
                     data.setTransverseAlignment(BluestarLayoutData.CENTER);
                     super.addLayoutComponent(comp,data);
-                    break;
                 }
             }
         }
@@ -72,7 +69,6 @@ public class TempLayout extends BluestarLayout
     @Override
     public void layoutContainer(Container parent)
     {
-        System.out.println(parent.getX()+","+parent.getY()+","+parent.getWidth()+","+parent.getHeight());
         super.layoutContainer(parent);
     }
 

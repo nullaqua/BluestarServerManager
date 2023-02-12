@@ -1,7 +1,6 @@
-package me.lanzhi.net.servercore;
+package me.nullaqua.net.servercore;
 
-import me.lanzhi.UI;
-import me.lanzhi.net.ServerCoreGetter;
+import me.nullaqua.UI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +8,6 @@ import java.net.URL;
 
 class BungeeCordGetter implements ServerCoreGetter
 {
-
     @Override
     public String name()
     {

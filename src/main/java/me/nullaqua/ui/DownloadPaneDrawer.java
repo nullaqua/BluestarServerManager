@@ -1,16 +1,16 @@
-package me.lanzhi.ui;
+package me.nullaqua.ui;
 
-import me.lanzhi.Main;
-import me.lanzhi.ThreadManager;
-import me.lanzhi.UI;
 import me.lanzhi.api.awt.BluestarLayout;
 import me.lanzhi.api.awt.BluestarLayoutData;
 import me.lanzhi.api.net.dowloader.Downloader;
 import me.lanzhi.api.net.dowloader.MultiThreadDownload;
 import me.lanzhi.api.util.collection.FastLinkedList;
 import me.lanzhi.api.util.function.Run;
-import me.lanzhi.net.NetManager;
-import me.lanzhi.net.ServerCoreGetter;
+import me.nullaqua.Main;
+import me.nullaqua.ThreadManager;
+import me.nullaqua.UI;
+import me.nullaqua.net.NetManager;
+import me.nullaqua.net.servercore.ServerCoreGetter;
 
 import javax.swing.*;
 import java.awt.*;

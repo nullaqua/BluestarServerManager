@@ -1,9 +1,9 @@
-package me.lanzhi.ui;
+package me.nullaqua.ui;
 
-import me.lanzhi.UI;
-import me.lanzhi.Utils;
 import me.lanzhi.api.awt.BluestarLayout;
 import me.lanzhi.api.awt.BluestarLayoutData;
+import me.nullaqua.UI;
+import me.nullaqua.Utils;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;

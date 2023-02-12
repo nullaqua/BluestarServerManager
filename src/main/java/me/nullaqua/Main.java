@@ -1,12 +1,11 @@
-package me.lanzhi;
+package me.nullaqua;
 
-
-import me.lanzhi.api.util.collection.ByteVector;
 
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class Main
@@ -29,7 +28,7 @@ public class Main
             {
             }
         });
-        //out=System.err;
+        out=System.err;
         for (var x: args)
         {
             if (x.equals("debug")||x.equals("-debug")||x.equals("--debug"))
@@ -68,7 +67,7 @@ public class Main
             }
             catch (Throwable e)
             {
-                UI.putError("尝试启动服务器失败",e);
+                ThreadManager.putError("尝试启动服务器失败",e);
                 return;
             }
             ServerState.state(ServerState.Running);
@@ -82,7 +81,7 @@ public class Main
                     }
                     catch (Throwable e)
                     {
-                        UI.putError("服务器进程异常终止",e);
+                        ThreadManager.putError("服务器进程异常终止",e);
                         process.destroy();
                         ServerState.state(ServerState.Error);
                         errThread.interrupt();
@@ -113,13 +112,8 @@ public class Main
             in=process.getOutputStream();
             out=process.getInputStream();
             err=process.getErrorStream();
-            outThread=createOutputListener(out,s->
-            {
-                UI.output.append(s);
-                //换行
-                UI.output.append("\r\n");
-            });
-            errThread=createOutputListener(err,s->UI.output.append(s+"\r\n"));
+            outThread=createOutputListener(out,UI.output::append);
+            errThread=createOutputListener(err,UI.output::append);
             outThread.start();
             errThread.start();
         }
@@ -132,33 +126,18 @@ public class Main
             @Override
             public void run()
             {
-                var vector=new ByteVector();
-                while (true)
+                Scanner scanner=new Scanner(in,"GBK");
+                while (scanner.hasNext())
                 {
                     try
                     {
-                        var b=in.read();
-                        if (b==27)
-                        {
-                            System.out.println("ESC");
-                        }
-                        if (b==-1)
-                        {
-                            break;
-                        }
-                        if (b=='\n')
-                        {
-                            consumer.accept(new String(vector.toByteArray(),"GBK"));
-                            vector.clear();
-                        }
-                        else
-                        {
-                            vector.add((byte) b);
-                        }
+                        String line=scanner.nextLine();
+                        consumer.accept(line+"\r\n");
+                        System.out.println(line);
                     }
                     catch (Throwable e)
                     {
-                        UI.putError("监听服务器输出时出现错误,可能导致无法监听",e);
+                        ThreadManager.putNamedError("监听服务器输出时出现错误,可能导致无法监听",e,"output");
                     }
                 }
             }
@@ -184,7 +163,7 @@ public class Main
                 }
                 catch (Throwable e)
                 {
-                    UI.putError("尝试关闭服务器 但关闭失败",e);
+                    ThreadManager.putError("尝试关闭服务器 但关闭失败",e);
                 }
             }
         }
@@ -204,7 +183,7 @@ public class Main
         }
         catch (Throwable e)
         {
-            UI.putError("无法执行命令:",e);
+            ThreadManager.putError("无法执行命令:",e);
         }
     }
 
@@ -222,7 +201,7 @@ public class Main
         }
         catch (Throwable e)
         {
-            UI.putError("创建data文件夹失败",e);
+            ThreadManager.putNamedError("创建data文件夹失败",e,"createDataDir");
         }
         return f;
     }

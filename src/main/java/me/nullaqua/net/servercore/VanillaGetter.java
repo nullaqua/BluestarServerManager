@@ -1,8 +1,7 @@
-package me.lanzhi.net.servercore;
+package me.nullaqua.net.servercore;
 
-import me.lanzhi.UI;
-import me.lanzhi.net.NetManager;
-import me.lanzhi.net.ServerCoreGetter;
+import me.nullaqua.UI;
+import me.nullaqua.net.NetManager;
 
 import javax.swing.*;
 import java.awt.*;

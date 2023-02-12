@@ -1,4 +1,4 @@
-package me.lanzhi;
+package me.nullaqua;
 
 import java.util.HashSet;
 import java.util.Objects;

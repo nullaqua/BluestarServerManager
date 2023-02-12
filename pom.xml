@@ -25,7 +25,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>me.lanzhi.Main</mainClass>
+                            <mainClass>me.nullaqua.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -58,7 +58,7 @@
     <repositories>
         <repository>
             <id>lanzhi-repo</id>
-            <url>https://raw.githubusercontent.com/lanzhi6/maven-repository/main</url>
+            <url>https://raw.githubusercontent.com/nullaqua/maven-repository/main</url>
         </repository>
     </repositories>
 

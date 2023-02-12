@@ -1,8 +1,7 @@
-package me.lanzhi.net.servercore;
+package me.nullaqua.net.servercore;
 
-import me.lanzhi.UI;
-import me.lanzhi.net.NetManager;
-import me.lanzhi.net.ServerCoreGetter;
+import me.nullaqua.UI;
+import me.nullaqua.net.NetManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,14 +36,12 @@ class SpongeVanillaGetter implements ServerCoreGetter
         }
     }
 
-    private static final String getVersion(String ver)
+    private static String getVersion(String ver)
     {
         try
         {
-            System.out.println("SpongeVanillaGetter.getVersion: "+ver);
             var url=new URL("https://repo.spongepowered.org/maven/org/spongepowered/spongevanilla/maven-metadata.xml");
             var res=NetManager.get(url);
-            System.out.println("SpongeVanillaGetter.getVersion: res="+res);
             if (res==null)
             {
                 return null;

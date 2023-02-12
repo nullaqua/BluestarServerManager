@@ -1,15 +1,15 @@
-package me.lanzhi.ui;
+package me.nullaqua.ui;
 
 import me.lanzhi.api.util.collection.FastLinkedList;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.JTextComponent;
-import javax.swing.text.html.HTMLDocument;
 import java.util.List;
 
 
-public class LimDocument extends HTMLDocument// implements StyledDocument,
+public class LimDocument extends DefaultStyledDocument
 {
     private final int lineMax;
     private final JTextComponent text;
@@ -21,7 +21,7 @@ public class LimDocument extends HTMLDocument// implements StyledDocument,
         this.text=text;
     }
 
-    public void insertString(int offset,String s,AttributeSet attributeSet) throws BadLocationException
+    public synchronized void insertString(int offset,String s,AttributeSet attributeSet) throws BadLocationException
     {
         super.insertString(offset,s,attributeSet);
         //将文本每行的长度存入列表
